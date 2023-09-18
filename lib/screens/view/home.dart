@@ -190,8 +190,6 @@ class _HomeState extends State<Home> {
                                           ConnectionState.waiting) {
                                         return const SizedBox();
                                       }
-                                      debugPrint(snapshot.data!['itemId'].length
-                                          .toString());
                                       return ListView(
                                         children: [
                                           for (int i = 0;
@@ -318,9 +316,26 @@ class _HomeState extends State<Home> {
   bool isRefresh = true;
 
   Future<void> getChart() async {
+    var collection = FirebaseFirestore.instance.collection('users');
+    var docSnapshot =
+        await collection.doc(FirebaseAuth.instance.currentUser!.uid).get();
+    List funds = [];
+    if (docSnapshot.exists) {
+      Map<String, dynamic>? data = docSnapshot.data();
+      funds = data?['itemId']; // <-- The value you want to retrieve.
+      // Call setState if needed.
+    }
+    print(funds[0]);
     String url =
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin/ethereum';
-
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=';
+    for (int i = 0; i < funds.length; i++) {
+      if (i != 0) {
+        url = url + "%2C" + funds[i];
+      } else {
+        url = url + funds[i];
+      }
+    }
+    print(url);
     setState(() {
       isRefresh = true;
     });

@@ -4,6 +4,7 @@ import 'package:action_slider/action_slider.dart';
 import 'package:checkout_screen_ui/checkout_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto_app/screens/Model/usermodels.dart';
+import 'package:crypto_app/utils/utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -166,10 +167,25 @@ class _AddFundsState extends State<AddFunds> {
 
                               controller.success(); //starts success animation
                               await Future.delayed(const Duration(seconds: 1));
+                              var collection = FirebaseFirestore.instance
+                                  .collection('users');
+                              var docSnapshot = await collection
+                                  .doc(FirebaseAuth.instance.currentUser!.uid)
+                                  .get();
+
+                              double funds = 0.0;
+                              if (docSnapshot.exists) {
+                                Map<String, dynamic>? data = docSnapshot.data();
+                                funds = double.parse(data?[
+                                    'totalFunds']); // <-- The value you want to retrieve.
+                                // Call setState if needed.
+                              }
+                              double totalFund =
+                                  funds + double.parse(controllerText.text);
                               await FirebaseFirestore.instance
                                   .collection("users")
                                   .doc(FirebaseAuth.instance.currentUser!.uid)
-                                  .update({'totalFunds': controllerText.text});
+                                  .update({'totalFunds': totalFund.toString()});
                               print(controllerText.text);
                               controllerText.clear();
                               setState(() {
@@ -178,7 +194,12 @@ class _AddFundsState extends State<AddFunds> {
                               });
                               print(controllerText.text);
                               print(fundValue);
-                              controller.reset(); //resets the slider
+
+                              Navigator.pop(context);
+                              showSnackBar(
+                                  context: context,
+                                  content: "Payment Successfull");
+                              //resets the slider
                             },
                             child: const Text('Slide to confirm'),
                           ),

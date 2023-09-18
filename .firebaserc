@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "calcicfun",
+    "y": "calcicfun",
+    "calcifun": "calcicfun"
+  },
+  "targets": {},
+  "etags": {}
+}

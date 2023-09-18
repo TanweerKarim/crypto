@@ -150,6 +150,11 @@ class _BuyCoinsState extends State<BuyCoins> {
                           haveValue = false;
                         });
                         controller.reset();
+
+                        Navigator.pop(context);
+                        showSnackBar(
+                            context: context,
+                            content: "Coins succesfully added!");
                       } else {
                         showSnackBar(
                             context: context, content: "Insufficient funds");

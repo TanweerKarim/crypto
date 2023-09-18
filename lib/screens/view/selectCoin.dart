@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:crypto_app/screens/view/navBar.dart';
 import 'package:crypto_app/utils/utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +29,34 @@ class _SelectCoinState extends State<SelectCoin> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     double myHeight = MediaQuery.of(context).size.height;
     double myWidth = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
+      appBar: AppBar(
+        title: Text("Coins Details"),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NavBar(),
+                ),
+                (route) => false,
+              );
+            },
+            child: Text(
+              "Back",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
       body: Container(
         height: myHeight,
         width: myWidth,
