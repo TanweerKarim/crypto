@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "398005183283",
+    "project_id": "calcicfun",
+    "storage_bucket": "calcicfun.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398005183283:android:c70baf64251ca172485446",
+        "android_client_info": {
+          "package_name": "com.example.calichat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398005183283-17l4ekfifu6u3boqfet654ikhjdpfh8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSLWdlgAxj13xBDkUd2H8XJLjVG6AAUMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398005183283-17l4ekfifu6u3boqfet654ikhjdpfh8k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398005183283-75bmq4omcdtorhnfp7buo83hri16oqf2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.calichat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398005183283:android:59b36d167d3c3dbd485446",
+        "android_client_info": {
+          "package_name": "com.example.crypto_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398005183283-17l4ekfifu6u3boqfet654ikhjdpfh8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSLWdlgAxj13xBDkUd2H8XJLjVG6AAUMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "398005183283-17l4ekfifu6u3boqfet654ikhjdpfh8k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "398005183283-75bmq4omcdtorhnfp7buo83hri16oqf2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.calichat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
